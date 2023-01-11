@@ -4,36 +4,45 @@ import './App.css';
 function Picture(props) {
   return (
     <>
-      <h1>{props.name}</h1>
-      <img src={props.url} width={props.size}></img>
+      <h1 style={{ fontSize: props.titleSize + 'px' }}>{props.name}</h1>
+      <img src={props.url} width={props.imageSize}></img>
     </>
   );
 }
 
 export default function App() {
-  const [inputs, setInputs] = useState({ title: '', size: '', link: '' });
+  const [inputs, setInputs] = useState({ title: '', titleSize: 50, link: '', imageSize: 50, });
 
   const handleTitle = event => {
-    setInputs({ title: event.target.value, size: inputs.size, link: inputs.link });
+    setInputs({ title: event.target.value, titleSize: inputs.titleSize, imageSize: inputs.imageSize, link: inputs.link });
   }
 
-  const handleSize = event => {
-    setInputs({ title: inputs.title, size: event.target.value, link: inputs.link });
+  const handleImageSize = event => {
+    setInputs({ title: inputs.title, titleSize: inputs.titleSize, imageSize: event.target.value, link: inputs.link });
+  }
+
+  const handleTitleSize = event => {
+    setInputs({ title: inputs.title, titleSize: event.target.value, imageSize: inputs.imageSize, link: inputs.link });
   }
 
   const handleLink = event => {
-    setInputs({ title: inputs.title, size: inputs.size, link: event.target.value });
+    setInputs({ title: inputs.title, titleSize: inputs.titleSize, imageSize: inputs.imageSize, link: event.target.value });
   }
 
   return (
     <>
-      < div className="inputs" >
-        <input type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
-        <input type="text" placeholder="Image Size" id="size" onChange={handleSize} />
-        <input type="text" placeholder="Image Link" id="link" onChange={handleLink} />
-      </div >
+      <div className="inputs">
+        <div className="title">
+          <input type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
+          <input type="range" min="0" max="100" placeholder="Title Size" id="titleSize" onChange={handleTitleSize} />
+        </div>
+        <div classname="image">
+          <input type="text" placeholder="Image Link" id="link" onChange={handleLink} />
+          <input type="range" min="0" max="500" placeholder="Image Size" id="imageSize" onChange={handleImageSize} />
+        </div>
+      </div>
       <div className="image">
-        <Picture name={inputs.title} url={inputs.link} size={inputs.size} />
+        <Picture name={inputs.title} url={inputs.link} titleSize={inputs.titleSize} imageSize={inputs.imageSize} />
       </div>
     </>
   );

@@ -4,8 +4,8 @@ import './index.css';
 function Picture(props) {
   return (
     <>
-      <h1 style={{ fontSize: props.titleSize + 'px' }}>{props.name}</h1>
-      <img src={props.url} width={props.imageSize}></img>
+      <h1 className='mt-5 text-center' style={{ fontSize: props.titleSize + 'px' }}>{props.name}</h1>
+      <img className='mt-5 mx-auto' src={props.url} width={props.imageSize}></img>
     </>
   );
 }
@@ -31,13 +31,13 @@ export default function App() {
 
   return (
     <>
-      <div>
-        <div>
-          <input type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
+      <div className='mt-5 p-6 max-w-screen-lg mx-auto bg-white rounded-xl shadow-lg flex justify-around'>
+        <div className='flex flex-col'>
+          <input className='text-center mb-2' type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
           <input type="range" min="0" max="100" placeholder="Title Size" id="titleSize" onChange={handleTitleSize} />
         </div>
-        <div>
-          <input type="text" placeholder="Image Link" id="link" onChange={handleLink} />
+        <div className='flex flex-col'>
+          <input className='text-center mb-2 w-full' type="text" placeholder="Image Link" id="link" onChange={handleLink} />
           <input type="range" min="0" max="500" placeholder="Image Size" id="imageSize" onChange={handleImageSize} />
         </div>
       </div>

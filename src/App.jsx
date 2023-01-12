@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './index.css';
 
 function Picture(props) {
   return (
@@ -31,17 +31,17 @@ export default function App() {
 
   return (
     <>
-      <div className="inputs">
-        <div className="title">
+      <div>
+        <div>
           <input type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
           <input type="range" min="0" max="100" placeholder="Title Size" id="titleSize" onChange={handleTitleSize} />
         </div>
-        <div classname="image">
+        <div>
           <input type="text" placeholder="Image Link" id="link" onChange={handleLink} />
           <input type="range" min="0" max="500" placeholder="Image Size" id="imageSize" onChange={handleImageSize} />
         </div>
       </div>
-      <div className="image">
+      <div>
         <Picture name={inputs.title} url={inputs.link} titleSize={inputs.titleSize} imageSize={inputs.imageSize} />
       </div>
     </>

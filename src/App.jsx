@@ -31,12 +31,13 @@ export default function App() {
 
   return (
     <>
-      <div className='mt-5 p-6 max-w-screen-lg mx-auto bg-white rounded-xl shadow-lg flex justify-around'>
-        <div className='flex flex-col'>
-          <input className='text-center mb-2' type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
+      {/* <Navbar /> */}
+      <div className='py-6 mx-auto bg-white	shadow-lg flex justify-around'>
+        <div className='flex flex-col px-7'>
+          <input className='text-center mb-2 w-full' type="text" placeholder="Image Title" id="title" onChange={handleTitle} />
           <input type="range" min="0" max="100" placeholder="Title Size" id="titleSize" onChange={handleTitleSize} />
         </div>
-        <div className='flex flex-col'>
+        <div className='flex flex-col px-7'>
           <input className='text-center mb-2 w-full' type="text" placeholder="Image Link" id="link" onChange={handleLink} />
           <input type="range" min="0" max="500" placeholder="Image Size" id="imageSize" onChange={handleImageSize} />
         </div>

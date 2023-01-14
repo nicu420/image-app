@@ -1,2 +1,2 @@
 # react-image
-Fucking around
+Random vite react app styled with tailwind
